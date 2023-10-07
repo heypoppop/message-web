@@ -1,5 +1,9 @@
+const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+const host = window.location.host;
+const wsURL = `${protocol}//${host}/gs-guide-websocket`;
+
 const stompClient = new StompJs.Client({
-    brokerURL: 'ws://localhost:8080/gs-guide-websocket'
+    brokerURL: wsURL
 });
 
 stompClient.onConnect = (frame) => {
